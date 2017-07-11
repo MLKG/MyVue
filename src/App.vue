@@ -3,23 +3,20 @@
     <router-view></router-view>
     <common-message v-show="popShow"></common-message>
     <common-loading></common-loading>
-    <!-- <common-cgb-loading></common-cgb-loading> -->
     <common-loading-tip></common-loading-tip>
   </div>
 </template>
 
 <script>
-  import CommonMessage from 'components/Common/CommonMessage'
-  import CommonLoading from 'components/Common/CommonLoading'
-  // import CommonCgbLoading from 'components/Common/CommonCgbLoading'
-  import CommonLoadingTip from 'components/Common/CommonLoadingTip'
+  import CommonMessage from 'components/CommonMessage'
+  import CommonLoading from 'components/CommonLoading'
+  import CommonLoadingTip from 'components/CommonLoadingTip'
 
   export default {
     name: 'app',
     components: {
       CommonMessage,
       CommonLoading,
-      // CommonCgbLoading,
       CommonLoadingTip
     },
     computed: {

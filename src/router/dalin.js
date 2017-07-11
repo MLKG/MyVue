@@ -13,7 +13,7 @@ export default {
       name: 'Home',
       component: Home,
       meta: {
-        title: 'dalin'
+        title: '哒林数码'
       }
     }
   ]

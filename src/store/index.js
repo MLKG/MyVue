@@ -3,11 +3,7 @@ import Vuex from 'vuex'
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
-// import shop from './modules/shop'
-// import puyipay from './modules/puyipay'
-// import ttl from './modules/ttl'
-// import temp from './modules/temp'
-
+import dalin from './modules/dalin'
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
@@ -25,10 +21,7 @@ export default new Vuex.Store({
   getters,
   mutations,
   modules: {
-    // shop,  // 网店
-    // puyipay,  // 广发电子账户
-    // ttl, // 广发天天利
-    // temp  // 调试用
+    dalin
   },
   strict: debug
 })

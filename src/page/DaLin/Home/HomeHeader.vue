@@ -13,11 +13,7 @@
       <div class="swiper-pagination swiper-pagination-black" slot="pagination"></div>
     </swiper>
     <div class="home-header__notice font-size-small" v-show="false">
-      <div class="home-header__notice_img">
-        <img src="../../../images/puyitou/home-notice.png" />
-      </div>
       <div class="home-header__notice_text">{{ userInfo }}</div>
-      <div class="home-header__notice_time">-2017.5.23</div>
     </div>
   </div>
 </template>

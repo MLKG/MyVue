@@ -5,10 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './config/init'
-// import './config/directives'
 import './config/filters'
-import './config/utility'
-// import './config/routerguard'
 
 /* eslint-disable no-new */
 new Vue({
