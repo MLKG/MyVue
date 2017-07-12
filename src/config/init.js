@@ -1,11 +1,41 @@
-import Vue from 'vue'
+import store from '../store'
 import router from '../router'
-let vuePrototype = Vue.prototype
+import userApi from '../api/user'
+// import wx from 'weixin-js-sdk'
+// import wxApi from '../api/dalin'
+
+// 判断是否为微信
+// let isWechat = /MicroMessenger/i.test(navigator.userAgent.toLowerCase())
 
 document.addEventListener('DOMContentLoaded', function () {
   let width = document.documentElement.clientWidth
   document.documentElement.style.fontSize = width < 1080 ? width / 7.5 + 'px' : '144px'
   document.documentElement.setAttribute('data-dpr', window.devicePixelRatio)
+
+  // 微信分享
+  // if (isWechat) {
+  //   wxApi.init(res => {
+  //     let config = res.data.config
+  //     wx.config({
+  //       debug: false,
+  //       appId: config.appId,
+  //       timestamp: config.timestamp,
+  //       nonceStr: config.nonceStr,
+  //       signature: config.signature,
+  //       jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'chooseImage', 'uploadImage']
+  //     })
+  //   })
+
+  //   let apiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
+  //   apiList.forEach(name => {
+  //     wx[name]({
+  //       title: 'dalin是最棒的！',
+  //       desc: '世界上最棒的男人的成功之路！',
+  //       imgUrl: '',
+  //       link: window.location.href
+  //     })
+  //   })
+  // }
 })
 
 window.addEventListener('resize', function () {
@@ -21,70 +51,31 @@ router.afterEach(function (transition) {
   }
 })
 
-vuePrototype._scrollToBottom = function () {
-  if (document.body.offsetHeight < window.screen.height) {
-    return false
+// 同步用户登陆状态userInfo isAuth代表是否登录
+userApi.isLogin(res => {
+  routerCtr()
+  let isLogin = res.data.login
+  if (!isLogin) {
+    store.commit('AUTH_CLEARUSERINFO', res)
   } else {
-    return (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+    store.commit('AUTH_ISLOGIN', res)
+    userApi.getUserInfo(res => {
+      store.commit('AUTH_USERINFO', res)
+    })
   }
-}
+})
 
-// 相当于angular的$filter
-vuePrototype.filterObj = function (obj, key, value) {
-  return obj.filter((item) => { return item[key] === value })
-}
-
-// 压缩图片
-vuePrototype._compressImage = function (imgData, cb) {
-  var canvas = document.createElement('canvas')
-  var img = new Image()
-  img.src = imgData
-  img.onload = function () {
-    var ctx = canvas.getContext('2d')
-    var width = img.width
-    var height = img.height
-    var MAX_WIDTH = 800
-    var MAX_HEIGHT = 600
-    if (width > height) {
-      if (width > MAX_WIDTH) {
-        height *= MAX_WIDTH / width
-        width = MAX_WIDTH
+function routerCtr () {
+  router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requireLogin)) {
+      if (!store.getters.isLogin) {
+        next({path: '/login'})
+      } else {
+        next()
       }
     } else {
-      if (height > MAX_HEIGHT) {
-        width *= MAX_HEIGHT / height
-        height = MAX_HEIGHT
-      }
+      next()
     }
-    canvas.width = width
-    canvas.height = height
-    ctx.drawImage(img, 0, 0, width, height)
-    var data = canvas.toDataURL('image/jpeg', 0.5)
-    cb(data)
-  }
-}
-
-// 表单校验
-vuePrototype._validation = {
-  // 手机号码
-  isPhone (value) {
-    return /^1[3-9][0-9]\d{8}$/.test(value)
-  },
-  // 正整数
-  isNumber (value) {
-    return /^[1-9]\d*$/.test(value)
-  },
-  // 邮箱
-  isEmail (value) {
-    return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value)
-  },
-  // 邮编
-  isZipCode (value) {
-    return /^[1-9][0-9]{5}$/.test(value)
-  },
-  // 年收入
-  isInteger (value) {
-    return /^(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/.test(value)
-  }
+  })
 }
 

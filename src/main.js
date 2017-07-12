@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './config/init'
+import './config/global'
+import './config/validate'
 import './config/filters'
 
 /* eslint-disable no-new */

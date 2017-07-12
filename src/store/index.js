@@ -9,7 +9,7 @@ Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 
 const state = {
-  isAuth: false,  // 是否已登录
+  isLogin: false,  // 是否已登录
   userInfo: {},
   popShow: false,
   popMessage: ''

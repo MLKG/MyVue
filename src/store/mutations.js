@@ -12,11 +12,11 @@ export default {
     state.userInfo = payload.data.user
   },
   [types.AUTH_ISLOGIN] (state) {
-    state.isAuth = true
+    state.isLogin = true
   },
   [types.AUTH_CLEARUSERINFO] (state) {
     state.userInfo = {}
-    state.isAuth = false
+    state.isLogin = false
   },
   [types.SET_POPMESSAGE] (state, payload) {
     state.popShow = true

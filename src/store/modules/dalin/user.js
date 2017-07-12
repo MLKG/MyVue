@@ -17,14 +17,14 @@ const actions = {
       )
     })
   },
-  logout ({ commit }) {
-    user.logout(
+  loginOut ({ commit }) {
+    user.loginOut(
       res => commit(commontypes.AUTH_CLEARUSERINFO, res, {root: true}),
       err => commit(commontypes.AUTH_FAILURE, err, {root: true})
     )
   },
-  me ({ commit }) {
-    user.me(
+  getUserInfo ({ commit }) {
+    user.getUserInfo(
       res => commit(commontypes.AUTH_USERINFO, res, {root: true}),
       err => commit(commontypes.AUTH_FAILURE, err, {root: true})
     )
