@@ -12,9 +12,7 @@
       </swiper-slide>
       <div class="swiper-pagination swiper-pagination-black" slot="pagination"></div>
     </swiper>
-    <div class="home-header__notice font-size-small" v-show="false">
-      <div class="home-header__notice_text">{{ userInfo }}</div>
-    </div>
+    <div class="hide">{{userInfo}}</div>
   </div>
 </template>
 
@@ -41,8 +39,8 @@
     },
     mounted () {
       setTimeout(() => {
-        this.userInfo = 'dalin'
-      }, 10)
+        this.userInfo = '66'
+      }, 0)
     }
   }
 </script>
