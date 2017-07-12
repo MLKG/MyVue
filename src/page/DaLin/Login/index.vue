@@ -36,7 +36,7 @@
         loginOut: 'dalin/user/loginOut'
       }),
       loginInClick () {
-        let o = {name: '15279122390', pass: 'pyt333333'}
+        let o = {name: '', pass: ''}
         this.login(o).then(() => this.getUserInfo())
       },
       loginOutClick () {
