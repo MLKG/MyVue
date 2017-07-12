@@ -5,7 +5,7 @@ export default {
     commit(commontypes.SET_POPMESSAGE, o)
     setTimeout(() => {
       commit(commontypes.CLEAR_POPSHOW)
-      setTimeout(() => commit(commontypes.CLEAR_POPMESSAGE), 2000)
+      commit(commontypes.CLEAR_POPMESSAGE)
     }, 2000)
   }
 }

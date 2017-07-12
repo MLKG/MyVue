@@ -2,7 +2,6 @@ import store from '../store'
 import router from '../router'
 import userApi from '../api/user'
 // import wx from 'weixin-js-sdk'
-// import wxApi from '../api/dalin'
 
 // 判断是否为微信
 // let isWechat = /MicroMessenger/i.test(navigator.userAgent.toLowerCase())
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 微信分享
   // if (isWechat) {
-  //   wxApi.init(res => {
+  //   userApi.init(res => {
   //     let config = res.data.config
   //     wx.config({
   //       debug: false,

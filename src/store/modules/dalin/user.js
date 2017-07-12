@@ -8,7 +8,7 @@ const actions = {
   login ({ commit }, payload) {
     return new Promise((resolve, reject) => {
       user.login(
-        {name: payload.name, pass: payload.pass},
+        {name: payload.name, password: payload.password},
         res => {
           commit(commontypes.AUTH_ISLOGIN, res, {root: true})
           resolve()

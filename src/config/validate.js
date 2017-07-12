@@ -22,5 +22,8 @@ vuePrototype._validation = {
   // 年收入
   isInteger (value) {
     return /^(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/.test(value)
+  },
+  isPassword (value) {
+    return true
   }
 }

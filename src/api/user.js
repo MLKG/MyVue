@@ -2,7 +2,7 @@ import fetch from '../config/fetch'
 
 export default {
   login (o, cb, errorCb) {
-    fetch('auth/login', {username: o.name, password: o.pass}).then(cb).catch(errorCb)
+    fetch('auth/login', {username: o.name, password: o.password}).then(cb).catch(errorCb)
   },
   loginOut (cb, errorCb) {
     fetch('auth/logout').then(cb).catch(errorCb)
@@ -12,5 +12,8 @@ export default {
   },
   isLogin (cb, errorCb) {
     fetch('auth/isLogin').then(cb).catch(errorCb)
+  },
+  init (cb, errorCb) {
+    fetch('wechat/initJsConfig', {}, false).then(cb).catch(errorCb)
   }
 }
