@@ -22,12 +22,12 @@
         <div class="title">商城</div>
       </div>
     </div>
-    <div class="home-product__list" v-for="n in 20">
+    <div class="home-product__list" v-for="(list, index) in listData">
       <div class="left">
-        <div class="title">锤子员工爆料坚果Pro销量 和官方差的不少</div>
-        <div class="font-color-gray"><span>评论18</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2小时前</span></div>
+        <div class="title">{{list.title}}</div>
+        <div class="font-color-gray"><span>评论{{list.count}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{list.time}}小时前</span></div>
       </div>
-      <div class="right" v-touch:tap="eventFun">
+      <div class="right" v-touch:long="eventFun(list, index)">
         <img src="../../../images/dalin/phone.jpg"/>
       </div>
     </div>
@@ -36,8 +36,63 @@
 
 <script>
   export default {
+    data () {
+      return {
+        listData: [{
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }, {
+          title: '锤子员工爆料坚果Pro销量 和官方差的不少',
+          count: 18,
+          time: 3
+        }]
+      }
+    },
     methods: {
-      eventFun () {}
+      eventFun (list, index) {
+        return function (event) {
+          console.log(list)
+          console.log(index)
+          console.log(event)
+        }
+      }
     }
   }
 </script>
