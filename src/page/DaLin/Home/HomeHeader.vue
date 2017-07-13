@@ -63,7 +63,7 @@
     color: @bg-white;
     text-align: right !important;
     width: 98% !important;
-    font-size: @font-size-medium;
+    font-size: 16px;
   }
 
   .home-header {
