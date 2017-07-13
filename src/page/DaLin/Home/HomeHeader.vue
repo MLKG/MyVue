@@ -2,22 +2,27 @@
   <div class="home-header">
     <swiper :options="swiperOptionHeader">
       <swiper-slide>
-        <img src="https://www.puyitou.com/banner/11/9/D51EB8D056BBA472E64BABD48DD35065.jpg" class="home-header_img" />
+        <img src="http://i0.article.fd.zol-img.com.cn/t_s800x400/g5/M00/08/02/ChMkJlll-haIaK2LAADnGb2bt00AAeb7wOieE4AAOcx943.jpg" class="home-header_img" />
       </swiper-slide>
       <swiper-slide>
-        <img src="https://www.puyitou.com/banner/12/0/4B260F87BD15BC274C55A6416D9214D2.jpg" class="home-header_img" />
+        <img src="http://i0.article.fd.zol-img.com.cn/t_s800x400/g5/M00/08/03/ChMkJ1lmEKSIEknRAADAKkKMEFoAAecIgGROVsAAMBC070.jpg" class="home-header_img" />
       </swiper-slide>
       <swiper-slide>
-        <img src="https://www.puyitou.com/banner/12/5/8026F78EE665AE090D91AAEE5CBE339A.jpg" class="home-header_img" />
+        <img src="http://i0.article.fd.zol-img.com.cn/t_s800x400/g5/M00/06/0F/ChMkJ1lkn6qIKAiBAAMxxb5hnywAAeXGwJJ8LAAAzHd569.jpg" class="home-header_img" />
       </swiper-slide>
-      <div class="swiper-pagination swiper-pagination-black" slot="pagination"></div>
+      <swiper-slide>
+        <img src="http://i0.article.fd.zol-img.com.cn/t_s800x400/g5/M00/06/0F/ChMkJ1lkoACIBW7EAAMcCcH_adkAAeXHAEghhIAAxwh224.jpg" class="home-header_img" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="http://pic.zol-img.com.cn/201707/chinajoy_0712.jpg" class="home-header_img" />
+      </swiper-slide>
+      <div class="swiper-pagination swiper-pagination-color" slot="pagination"></div>
     </swiper>
-    <div class="hide">{{userInfo}}</div>
+    <div class="hide">{{userName}}</div>
   </div>
 </template>
 
 <script>
-  // import { mapGetters } from 'vuex'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
   export default {
@@ -32,14 +37,15 @@
           pagination: '.swiper-pagination',
           slidesPerView: 'auto',
           paginationClickable: true,
+          paginationType: 'fraction',
           loop: true
         },
-        userInfo: ''
+        userName: ''
       }
     },
     mounted () {
       setTimeout(() => {
-        this.userInfo = '66'
+        this.userName = 'dalin'
       }, 0)
     }
   }
@@ -49,8 +55,15 @@
   @import "../../../style/variables";
 
   .swiper-slide {
-    height: 3.4722rem;
+    height: 3.76rem;
     color: white;
+  }
+
+  .swiper-pagination-color {
+    color: @bg-white;
+    text-align: right !important;
+    width: 98% !important;
+    font-size: @font-size-medium;
   }
 
   .home-header {
@@ -86,25 +99,6 @@
         padding-right: 0.2rem;
         text-align: right;
       }
-    }
-  }
-</style>
-
-<style lang="less">
-  @import "../../../style/variables";
-
-  .swiper-pagination-black {
-
-    & .swiper-pagination-bullet {
-      background: @bg-black;
-      width: 10px;
-      height: 10px;
-      opacity: 0.3;
-    }
-
-    & .swiper-pagination-bullet-active {
-      background: @bg-black;
-      opacity: 0.7;
     }
   }
 </style>
