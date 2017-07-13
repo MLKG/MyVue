@@ -1,6 +1,6 @@
-# vue-dalin-hui
+# vue-dalin
 
-> A Vue.js project
+> A Vue.js project with vuex and swiper
 
 ## Build Setup
 
