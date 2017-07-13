@@ -5,23 +5,23 @@
       <router-link to="/index">
         <div class="login_logo"><img src="../../../images/dalin/logo.png"></div>
       </router-link>
-      <form @submit.prevent="loginInClick()" v-show="!isLogin">
+      <form @submit.prevent="loginInClick" v-show="!isLogin">
         <label for="phoneNo">手机号码</label>
         <div class="inputbox">
           <input ref="phoneNo" type="text" v-model="phoneNo" name="phoneNo" id="phoneNo">
-          <img src="../../../images/dalin/X.png" class="clearPhone" @click="clearPhoneNo()" v-show="phoneNo">
+          <img src="../../../images/dalin/X.png" class="clearPhone" @click="clearPhoneNo" v-show="phoneNo">
         </div>
         <label for="pwd">登录密码</label>
         <div class="inputbox">
           <input ref="pwdInputHide" type="password" name="pwd" id="pwd" v-show="!showPwd" v-model="password">
           <input ref="pwdInputShow" type="text" name="pwd" id="pwd" v-show="showPwd" v-model="password">
-          <img src="../../../images/dalin/eye-close.png" class="eye-close" @click="togglePwd()" v-show="!showPwd">
-          <img src="../../../images/dalin/eye-open.png" class="eye-open" @click="togglePwd()" v-show="showPwd">
-          <img src="../../../images/dalin/X.png" class="clearPwd" @click="clearPwd()" v-show="password">
+          <img src="../../../images/dalin/eye-close.png" class="eye-close" @click="togglePwd" v-show="!showPwd">
+          <img src="../../../images/dalin/eye-open.png" class="eye-open" @click="togglePwd" v-show="showPwd">
+          <img src="../../../images/dalin/X.png" class="clearPwd" @click="clearPwd" v-show="password">
         </div>
         <button type="submit" class="loginBtn" :disabled="!isDisabled" v-show="!isLogin">登&nbsp;录</button>
       </form>
-      <button type="button" class="loginOutBtn" @click="loginOut()" v-show="isLogin">注&nbsp;销</button>
+      <button type="button" class="loginOutBtn" @click="loginOut" v-show="isLogin">注&nbsp;销</button>
       <div class="bottom"></div>
     </div>
   </div>
