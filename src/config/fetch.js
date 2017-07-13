@@ -2,9 +2,11 @@ import Vue from 'vue'
 import router from '../router'
 import { httpUrl } from './env'
 import VueResource from 'vue-resource'
+import touch from 'vue-directive-touch'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 Vue.use(VueResource)
+Vue.use(touch)
 Vue.use(VueAwesomeSwiper)
 
 Vue.http.options.emulateJSON = true
