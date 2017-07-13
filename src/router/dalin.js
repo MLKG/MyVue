@@ -14,7 +14,7 @@ export default {
       name: 'Home',
       component: Home,
       meta: {
-        requireLogin: true,
+        // requireLogin: false,
         title: '哒林数码'
       }
     },

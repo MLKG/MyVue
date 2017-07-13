@@ -2,14 +2,16 @@
   <div>
     <div class="login_background"></div>
     <div class="login">
-      <div class="login_logo"><img src="../../../images/dalin/logo.png"></div>
-      <form @submit.prevent="loginInClick()">
-        <label for="phoneNo">手机号码</label><span class="msg red" v-show="errObj.phoneNotValid">请输入正确的手机号码</span>
+      <router-link to="/index">
+        <div class="login_logo"><img src="../../../images/dalin/logo.png"></div>
+      </router-link>
+      <form @submit.prevent="loginInClick()" v-show="!isLogin">
+        <label for="phoneNo">手机号码</label>
         <div class="inputbox">
-          <input ref="phoneNo" type="text" v-model="phoneNo" name="phoneNo" id="phoneNo" @blur="checkPhoneNo()">
+          <input ref="phoneNo" type="text" v-model="phoneNo" name="phoneNo" id="phoneNo">
           <img src="../../../images/dalin/X.png" class="clearPhone" @click="clearPhoneNo()" v-show="phoneNo">
         </div>
-        <label for="pwd">登录密码</label><span class="msg blue hide">请输入登录密码</span>
+        <label for="pwd">登录密码</label>
         <div class="inputbox">
           <input ref="pwdInputHide" type="password" name="pwd" id="pwd" v-show="!showPwd" v-model="password">
           <input ref="pwdInputShow" type="text" name="pwd" id="pwd" v-show="showPwd" v-model="password">
@@ -17,41 +19,41 @@
           <img src="../../../images/dalin/eye-open.png" class="eye-open" @click="togglePwd()" v-show="showPwd">
           <img src="../../../images/dalin/X.png" class="clearPwd" @click="clearPwd()" v-show="password">
         </div>
-        <button type="submit" class="loginBtn" :disabled="!isDisabled">登&nbsp;录</button>
+        <button type="submit" class="loginBtn" :disabled="!isDisabled" v-show="!isLogin">登&nbsp;录</button>
       </form>
+      <button type="button" class="loginOutBtn" @click="loginOut()" v-show="isLogin">注&nbsp;销</button>
       <div class="bottom"></div>
     </div>
   </div>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   export default {
     data () {
       return {
         phoneNo: '',
         password: '',
-        showPwd: false,
-        errObj: {
-          phoneNotValid: false
-        }
+        showPwd: false
       }
     },
     computed: {
+      ...mapGetters({
+        isLogin: 'isLogin'
+      }),
       isDisabled () {
-        return this._validation.isPhone(this.phoneNo) && this.password
+        return this.phoneNo && this.password
       }
     },
     methods: {
       ...mapActions({
         showMsg: 'showMsg',
         login: 'dalin/user/login',
-        getUserInfo: 'dalin/user/getUserInfo'
-        // loginOut: 'dalin/user/loginOut'
+        getUserInfo: 'dalin/user/getUserInfo',
+        loginOut: 'dalin/user/loginOut'
       }),
       clearPhoneNo () {
         this.phoneNo = ''
-        this.errObj.phoneNotValid = false
         this.$refs.phoneNo.focus()
       },
       clearPwd () {
@@ -65,18 +67,13 @@
       togglePwd () {
         this.showPwd = !this.showPwd
       },
-      checkPhoneNo () {
-        if (this._validation.isPhone(this.phoneNo)) {
-          this.errObj.phoneNotValid = false
-        } else {
-          this.errObj.phoneNotValid = true
-        }
-      },
       loginInClick (e) {
         let o = {name: this.phoneNo, password: this.password}
         this.login(o).then(() => {
+          this.phoneNo = ''
+          this.password = ''
           this.getUserInfo()
-          this.$router.push({path: '/index'})
+          // this.$router.push({path: '/index'})
         })
       }
     }
@@ -85,22 +82,6 @@
 
 <style lang="less" scoped>
   @import "../../../style/variables";
-
-  .msg {
-    margin-left: .3rem;
-
-    &.red {
-      color: @font-color-red;
-    }
-
-    &.blue {
-      color: @font-color-blue;
-    }
-
-    &.gray {
-      color: @font-color-gray;
-    }
-  }
 
   .login {
     padding: 0.6rem;
@@ -134,7 +115,7 @@
 
       .inputbox {
         padding-top: .3rem;
-        padding-bottom: .3rem;
+        padding-bottom: .2rem;
         margin-bottom: .4rem;
         border-bottom: 1px solid @line-color;
         position: relative;
@@ -192,6 +173,19 @@
           background-color: @bg-gray;
         }
       }
+    }
+
+    .loginOutBtn {
+      border: 0;
+      width: 100%;
+      background-color: @bg-red;
+      color: @font-color-white;
+      font-size: @font-size-medium;
+      padding-top: .3rem;
+      padding-bottom: .3rem;
+      border-radius: 5px;
+      margin-bottom: .3rem;
+      margin-top: 0.5rem;
     }
 
     .bottom {
