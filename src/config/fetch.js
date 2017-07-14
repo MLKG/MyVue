@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import touch from 'vue-directive-touch'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+// use vue-resource
 Vue.use(VueResource)
 Vue.use(touch)
 Vue.use(VueAwesomeSwiper)
