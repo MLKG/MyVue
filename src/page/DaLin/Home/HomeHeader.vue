@@ -59,6 +59,10 @@
     color: white;
   }
 
+  .swiper-container {
+    position: fixed;
+  }
+
   .swiper-pagination-color {
     color: @bg-white;
     text-align: right !important;
