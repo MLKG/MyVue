@@ -2,10 +2,9 @@ import Vue from 'vue'
 import router from '../router'
 import { httpUrl } from './env'
 import VueResource from 'vue-resource'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+// use vue-resource
 Vue.use(VueResource)
-Vue.use(VueAwesomeSwiper)
 
 Vue.http.options.emulateJSON = true
 Vue.http.options.credentials = true // across domain with cookie
