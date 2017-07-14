@@ -2,8 +2,11 @@ import Vue from 'vue'
 import store from '../store'
 import router from '../router'
 import userApi from '../api/user'
+import VueLazyload from 'vue-lazyload'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // import wx from 'weixin-js-sdk'
+// use vue-lazyload
+Vue.use(VueLazyload)
 // use vue-awesome-swiper
 Vue.use(VueAwesomeSwiper)
 
