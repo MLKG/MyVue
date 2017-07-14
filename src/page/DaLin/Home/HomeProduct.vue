@@ -22,13 +22,14 @@
         <div class="title">商城</div>
       </div>
     </div>
-    <div class="home-product__list" v-for="n in 20">
+    <div class="home-product__list" v-for="(n, index) in 20">
       <div class="left">
         <div class="title">锤子员工爆料坚果Pro销量 和官方差的不少</div>
         <div class="font-color-gray"><span>评论18</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2小时前</span></div>
       </div>
       <div class="right">
-        <img src="../../../images/dalin/phone.jpg"/>
+        <img v-if="index % 2 === 0" src="http://i3.article.fd.zol-img.com.cn/t_s160x120/g5/M00/0A/04/ChMkJlloZfqINqVdAAB5IsazY8cAAekYgPjamoAAHk6353.jpg"/>
+        <img v-if="index % 2 === 1" src="../../../images/dalin/phone.jpg"/>
       </div>
     </div>
   </div>
@@ -80,7 +81,7 @@
 
         img {
           width: 2.2rem;
-          height: 100%;
+          height: 1.54rem;
         }
       }
     }
