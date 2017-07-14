@@ -2,8 +2,11 @@ import Vue from 'vue'
 import store from '../store'
 import router from '../router'
 import userApi from '../api/user'
+import touch from 'vue-directive-touch'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // import wx from 'weixin-js-sdk'
+// use vue-directive-touch
+Vue.use(touch)
 // use vue-awesome-swiper
 Vue.use(VueAwesomeSwiper)
 
