@@ -3,11 +3,10 @@ import router from '../router'
 import { httpUrl } from './env'
 import VueResource from 'vue-resource'
 import VueScroller from 'vue-scroller'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+// use vue-resource
 Vue.use(VueResource)
 Vue.use(VueScroller) // 下拉刷新，上拉加载
-Vue.use(VueAwesomeSwiper)
 
 Vue.http.options.emulateJSON = true
 Vue.http.options.credentials = true // across domain with cookie
