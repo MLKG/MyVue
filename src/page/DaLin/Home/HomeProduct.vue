@@ -1,6 +1,6 @@
 <template>
   <div class="home-product">
-    <!-- <div class="home-product__nav">
+    <div class="home-product__nav">
       <div class="item">
         <img src="../../../images/dalin/sites_01.png"/>
         <div class="title">查报价</div>
@@ -21,8 +21,8 @@
         <img src="../../../images/dalin/sites_09.png"/>
         <div class="title">商城</div>
       </div>
-    </div> -->
-    <scroller ref="myScroller" :on-refresh="refresh" :on-infinite="infinite" style="top: 187.5px; background-color: #FFF;height:100%;">
+    </div>
+    <scroller ref="myScroller" :on-refresh="refresh" :on-infinite="infinite" style="top: 6.24rem; background-color: #FFF;height:100%;">
       <div class="home-product__list" v-for="n in dataCount">
         <div class="left">
           <div class="title">锤子员工爆料坚果Pro销量 和官方差的不少</div>
