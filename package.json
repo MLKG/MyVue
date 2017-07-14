@@ -1,8 +1,8 @@
 {
-  "name": "vue-shop-2.0",
+  "name": "dalin-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "wangxu <ttian226@gmail.com>",
+  "author": "MLKG <1059158548@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
