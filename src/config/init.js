@@ -2,8 +2,11 @@ import Vue from 'vue'
 import store from '../store'
 import router from '../router'
 import userApi from '../api/user'
+import VueScroller from 'vue-scroller'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // import wx from 'weixin-js-sdk'
+// use vue-scroller
+Vue.use(VueScroller) // 下拉刷新，上拉加载
 // use vue-awesome-swiper
 Vue.use(VueAwesomeSwiper)
 
