@@ -46,14 +46,6 @@ window.addEventListener('resize', function () {
   document.documentElement.style.fontSize = width < 1080 ? width / 7.5 + 'px' : '144px'
 })
 
-router.afterEach(function (transition) {
-  if (transition.meta.title) {
-    document.title = transition.meta.title
-  } else {
-    document.title = 'Dalin'
-  }
-})
-
 // 同步用户登陆状态userInfo isAuth代表是否登录
 userApi.isLogin(res => {
   routerCtr()
@@ -82,3 +74,10 @@ function routerCtr () {
   })
 }
 
+router.afterEach(function (transition) {
+  if (transition.meta.title) {
+    document.title = transition.meta.title
+  } else {
+    document.title = 'Dalin'
+  }
+})
