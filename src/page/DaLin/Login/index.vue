@@ -8,7 +8,7 @@
       <form @submit.prevent="loginInClick" v-show="!isLogin">
         <label for="phoneNo">手机号码</label>
         <div class="inputbox">
-          <input ref="phoneNo" type="text" v-model="phoneNo" name="phoneNo" id="phoneNo">
+          <input ref="phoneNo" type="text" v-model="phoneNo" name="phoneNo" id="phoneNo" maxlength="11">
           <img src="../../../images/dalin/X.png" class="clearPhone" @click="clearPhoneNo" v-show="phoneNo">
         </div>
         <label for="pwd">登录密码</label>
@@ -73,7 +73,12 @@
           this.phoneNo = ''
           this.password = ''
           this.getUserInfo()
-          // this.$router.push({path: '/index'})
+          let redirect = this.$route.query.redirect
+          if (redirect) {
+            this.$router.replace(decodeURIComponent(redirect))
+          } else {
+            this.$router.replace({path: '/index'})
+          }
         })
       }
     }

@@ -1,23 +1,23 @@
 <template>
   <div class="home-product">
     <div class="home-product__nav">
-      <div class="item">
+      <div class="item" @click="goProduct('2018')">
         <img src="../../../images/dalin/sites_01.png"/>
         <div class="title">查报价</div>
       </div>
-      <div class="item">
+      <div class="item" @click="goProduct('2018')">
         <img src="../../../images/dalin/sites_03.png"/>
         <div class="title">问答</div>
       </div>
-      <div class="item">
+      <div class="item" @click="goProduct('2018')">
         <img src="../../../images/dalin/sites_05.png"/>
         <div class="title">排行榜</div>
       </div>
-      <div class="item">
+      <div class="item" @click="goProduct('2018')">
         <img src="../../../images/dalin/sites_07.png"/>
         <div class="title">视频</div>
       </div>
-      <div class="item">
+      <div class="item" @click="goProduct('2018')">
         <img src="../../../images/dalin/sites_09.png"/>
         <div class="title">商城</div>
       </div>
@@ -33,6 +33,16 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    methods: {
+      goProduct (productId) {
+        this.$router.push({path: '/product', query: {productId: productId}})
+      }
+    }
+  }
+</script>
 
 <style lang="less" scoped>
   @import "../../../style/variables";

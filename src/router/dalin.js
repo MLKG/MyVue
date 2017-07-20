@@ -2,6 +2,7 @@
 // 首页
 import Home from 'page/DaLin/Home/index'
 import Login from 'page/DaLin/Login/index'
+import Product from 'page/DaLin/Product/index'
 
 export default {
   router: [
@@ -15,6 +16,15 @@ export default {
       component: Home,
       meta: {
         // requireLogin: false,
+        title: '哒林数码'
+      }
+    },
+    {
+      path: '/product',
+      name: 'Product',
+      component: Product,
+      meta: {
+        requireLogin: true,
         title: '哒林数码'
       }
     },

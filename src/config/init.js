@@ -72,7 +72,7 @@ function routerCtr () {
   router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requireLogin)) {
       if (!store.getters.isLogin) {
-        next({path: '/login'})
+        next({path: '/login', query: {redirect: encodeURIComponent(to.fullPath)}})
       } else {
         next()
       }
