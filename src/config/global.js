@@ -10,7 +10,7 @@ vuePrototype._scrollToBottom = function () {
 }
 
 // 相当于angular的$filter
-vuePrototype.filterObj = function (obj, key, value) {
+vuePrototype._filterObj = function (obj, key, value) {
   return obj.filter((item) => { return item[key] === value })
 }
 
