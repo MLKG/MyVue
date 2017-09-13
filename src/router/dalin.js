@@ -3,6 +3,7 @@
 import Home from 'page/DaLin/Home/index'
 import Login from 'page/DaLin/Login/index'
 import Product from 'page/DaLin/Product/index'
+import KeyBoard from 'page/DaLin/KeyBoard/index'
 
 export default {
   router: [
@@ -34,6 +35,14 @@ export default {
       component: Login,
       meta: {
         title: '登录'
+      }
+    },
+    {
+      path: '/keyboard',
+      name: 'KeyBoard',
+      component: KeyBoard,
+      meta: {
+        title: '自写键盘'
       }
     }
   ]
