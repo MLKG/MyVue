@@ -22,7 +22,7 @@
         <div class="title">商城</div>
       </div>
     </div>
-    <div class="home-product__list" v-for="n in 20">
+    <div class="home-product__list" v-for="n in 20" :key="n" v-clipboard="copyData" @success="handleSuccess" @error="handleError">
       <div class="left">
         <div class="title">锤子员工爆料坚果Pro销量 和官方差的不少</div>
         <div class="font-color-gray"><span>评论18</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2小时前</span></div>
@@ -36,9 +36,22 @@
 
 <script>
   export default {
+    data () {
+      return {
+        copyData: '曾桂林是最棒的！'
+      }
+    },
     methods: {
       goProduct (productId) {
         this.$router.push({path: '/product', query: {productId: productId}})
+      },
+      handleSuccess (e) {
+        // console.log(e.text)
+        alert('复制成功')
+      },
+      handleError (e) {
+        // console.log(e)
+        alert('复制失败')
       }
     }
   }

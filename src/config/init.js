@@ -3,9 +3,11 @@ import store from '../store'
 import router from '../router'
 import userApi from '../api/user'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueClipboards from 'vue-clipboards'
 // import wx from 'weixin-js-sdk'
 // use vue-awesome-swiper
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueClipboards)
 
 // 判断是否为微信
 // let isWechat = /MicroMessenger/i.test(navigator.userAgent.toLowerCase())
