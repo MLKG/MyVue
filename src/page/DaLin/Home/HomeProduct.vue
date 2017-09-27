@@ -35,10 +35,13 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import VueClipboards from 'vue-clipboards'
+  Vue.use(VueClipboards)
   export default {
     data () {
       return {
-        copyData: '曾桂林是最棒的！'
+        copyData: '桂林是最棒的！'
       }
     },
     methods: {
